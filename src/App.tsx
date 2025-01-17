@@ -82,6 +82,8 @@ const App = () => {
             rows={10}
             cols={50}
           />
+        </div>
+        <div>
           <button onClick={handleCopy}>Copy to Clipboard</button>
           <p> Just copy and paste into Quizlet </p>
           <p>
@@ -89,7 +91,7 @@ const App = () => {
             (The settings in Quizlet need to be seperated by a tab and a new
             line){" "}
           </p>
-        </div>
+          </div>
       </div>
     </>
   );
