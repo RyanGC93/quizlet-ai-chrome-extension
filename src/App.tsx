@@ -6,11 +6,12 @@ function App() {
   const [aiPrompt, setAiPrompt] = useState("");
   const [numTerms, setNumTerms] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    geminiAiHandler(aiPrompt, numTerms);
+    let structuredResponse = await geminiAiHandler(aiPrompt, numTerms);
     console.log("AI Prompt:", aiPrompt);
     console.log("Number of Terms:", numTerms);
+    console.log(structuredResponse);
   };
 
   return (

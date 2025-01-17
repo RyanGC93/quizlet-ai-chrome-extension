@@ -33,7 +33,7 @@ const geminiAIHandler = async (inputText, termNum) => {
   try {
     const response = await axios.post(url, data, config);
     console.log(response.data); // Output the response from the API
-    return response.data;
+    return response.data.candidates[0].content.parts[0].text;
   } catch (error) {
     console.error("Error calling Gemini AI:", error);
     throw error; // Propagate the error to be handled by the calling component
