@@ -5,13 +5,18 @@ import geminiAiHandler from "./geminiAIHandler";
 function App() {
   const [aiPrompt, setAiPrompt] = useState("");
   const [numTerms, setNumTerms] = useState("");
+  const [structuredResponse, setStructuredResponse] = useState(""); // State to hold the structured response
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    let structuredResponse = await geminiAiHandler(aiPrompt, numTerms);
+    // Call the geminiAiHandler to get the response
+    let response = await geminiAiHandler(aiPrompt, numTerms);
     console.log("AI Prompt:", aiPrompt);
     console.log("Number of Terms:", numTerms);
-    console.log(structuredResponse);
+    console.log(response);
+
+    // Set the structured response into the state
+    setStructuredResponse(response);
   };
 
   return (
@@ -46,6 +51,17 @@ function App() {
           </div>
           <button type="submit">Submit</button>
         </form>
+
+        <div>
+          <h3>Structured Response:</h3>
+          <textarea
+            value={structuredResponse} // Populate the textarea with the response
+            readOnly // Make it read-only so the user can't edit it
+            rows="10"
+            cols="50"
+          />
+          <p> Just copy and paste into Quizlet </p>
+        </div>
       </div>
     </>
   );
