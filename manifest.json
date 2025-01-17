@@ -1,8 +1,14 @@
 {
-    "name": "Hello Extensions",
+    "name": "Hello Extensions V2",
     "description": "Base Level Extension",
     "version": "1.0",
     "manifest_version": 3,
+    "content_scripts": [
+        {
+          "matches": ["https://quizlet.com/*"],
+          "js": ["content.js"]
+        }
+      ],
     "action": {
       "default_popup": "quizletAI.html",
       "default_icon": "quizletAI_extension.png"
