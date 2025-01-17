@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import geminiAiHandler from "./geminiAIHandler";
 
 function App() {
   const [aiPrompt, setAiPrompt] = useState("");
@@ -7,6 +8,7 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    geminiAiHandler(aiPrompt, numTerms);
     console.log("AI Prompt:", aiPrompt);
     console.log("Number of Terms:", numTerms);
   };
