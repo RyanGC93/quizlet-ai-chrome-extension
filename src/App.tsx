@@ -3,7 +3,7 @@ import "./App.css";
 import geminiAiHandler from "./geminiAIHandler";
 
 const App = () => {
-  const textareaRef = useRef(null);
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null); // Explicitly typing the ref
 
   const [aiPrompt, setAiPrompt] = useState<string>("");
   const [numTerms, setNumTerms] = useState<string>("");
